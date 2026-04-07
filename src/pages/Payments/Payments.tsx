@@ -1,6 +1,19 @@
+import DashboardHeading from "../../components/DashboardHeading";
+import { useDashboardTitle } from "../../Config/sendLocation";
 
 export default function Payments() {
+
+
+  const { title, subtitle } = useDashboardTitle();
+
+
+
   return (
-    <div>Payments</div>
+    <div>
+
+      <DashboardHeading title={title} subtitle={subtitle}></DashboardHeading>
+
+
+    </div>
   )
 }

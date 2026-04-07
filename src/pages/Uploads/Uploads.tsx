@@ -1,6 +1,18 @@
+import DashboardHeading from "../../components/DashboardHeading";
+import { useDashboardTitle } from "../../Config/sendLocation";
 
 export default function Uploads() {
+  const { title, subtitle } = useDashboardTitle();
+
+
+
+
   return (
-    <div>Uploads</div>
+    <div>
+
+      <DashboardHeading title={title} subtitle={subtitle}></DashboardHeading>
+
+
+    </div>
   )
 }

@@ -29,7 +29,56 @@ export const dashboardTitleOptions: {
   "/uploads": {
     title: "Document Upload Center",
     subtitle: "Upload documents anytime for drivers and riders"
+  },
+  "/payments": {
+    title: "Payment & Billing",
+    subtitle: "Track financial transactions and payouts"
+  },
+  "/notifications": {
+    title: "Notifications",
+    subtitle: "Manage and send notifications to users"
+  },
+  "/useraccounts": {
+    title: "User Accounts",
+    subtitle: "Manage admin and staff accounts"
+  },
+  "/reports": {
+    title: "Reports & Analytics",
+    subtitle: "View analytics and export reports"
+  },
+  "/ridesandmonitoring": {
+    title: "Rides & Monitoring",
+    subtitle: "Manage, monitor, and edit all rides in one place"
+  },
+  "/livemap": {
+    title: "Live Map Tracking",
+    subtitle: "Real-time driver and trip tracking"
+  },
+  "/manualdispatch": {
+    title: "Manual Dispatch",
+    subtitle: "Create and assign rides manually for users who need assistance"
+  },
+  "/support": {
+    title: "Support & Help Center",
+    subtitle: "Manage customer support tickets"
+  },
+  "/activitylog": {
+    title: "Activity Log",
+    subtitle: "Track all admin actions and system activities"
+  },
+  "/feedback": {
+    title: "Feedback & Ratings",
+    subtitle: "View rider and driver feedback"
+  },
+  "/system-health": {
+    title: "System Health",
+    subtitle: "Monitor server status and maintenance alerts"
+  },
+  "/legal": {
+    title: "Legal & Compliance",
+    subtitle: "Manage legal documents and compliance requirements"
   }
+
 };
 
 export function useDashboardTitle() {

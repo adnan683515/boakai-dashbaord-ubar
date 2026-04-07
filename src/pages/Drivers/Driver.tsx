@@ -1,7 +1,19 @@
+import DashboardHeading from "../../components/DashboardHeading";
+import { useDashboardTitle } from "../../Config/sendLocation";
 
 
 export default function Driver() {
+
+  const { title, subtitle } = useDashboardTitle();
+
+
+
+
+
   return (
-    <div>Driver</div>
+    <div>
+
+      <DashboardHeading title={title} subtitle={subtitle}></DashboardHeading>
+    </div>
   )
 }

@@ -1,39 +1,17 @@
-import {
-  ActivityIcon,
-  ArrowLeftRight,
-  ArrowUpFromLine,
-  BadgeQuestionMark,
-  Bell,
-  BellDot,
-  BookText,
-  CarFront,
-  ChartLine,
-  CreditCard,
-  FilePlusCorner,
-  Gavel,
-  LayoutDashboard,
-  LifeBuoy,
-  MapPin,
-  Menu,
-  Send,
-  ShieldPlus,
-  SquareUserRound,
-  X
-} from "lucide-react";
+
+
+import { ActivityIcon, ArrowLeftRight, ArrowUpFromLine, BadgeQuestionMark, Bell, BellDot, BookText, CarFront, ChartLine, CreditCard, FilePlusCorner, Gavel, LayoutDashboard, LifeBuoy, MapPin, Menu, Send, ShieldPlus, SquareUserRound, X } from "lucide-react";
 import { useState } from "react";
-import { Outlet } from "react-router";
+import { Outlet, useLocation } from "react-router";
 import logo from '../assets/Logo.png';
 import SideNavigation from "../components/SideNavigation";
-import './laytout.css';
-
+import './laytout.css'
 
 export type SidebarItem = {
   name: string;
   path: string;
   icon: React.ReactNode;
 };
-
-
 
 const sidebarItems: SidebarItem[] = [
   {
@@ -69,7 +47,6 @@ const sidebarItems: SidebarItem[] = [
 ];
 
 const manageMentItems: SidebarItem[] = [
-
   {
     name: 'Payments',
     path: 'payments',
@@ -90,9 +67,7 @@ const manageMentItems: SidebarItem[] = [
     path: 'reports',
     icon: <ChartLine size={20} />
   },
-]
-
-
+];
 
 const OperationsItems: SidebarItem[] = [
   {
@@ -110,11 +85,9 @@ const OperationsItems: SidebarItem[] = [
     path: 'manualdispatch',
     icon: <Send size={20} />
   },
-]
-
+];
 
 const SystemItems: SidebarItem[] = [
-
   {
     name: 'Support',
     path: 'support',
@@ -140,50 +113,33 @@ const SystemItems: SidebarItem[] = [
     path: 'legal',
     icon: <Gavel size={20} />
   },
-]
-
-
-
-
-
-
-
-
+];
 
 export default function MainLayout() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-
-
+  const location = useLocation();
+  console.log(location);
 
   return (
-    <div className="min-h-screen bg-gray-100 flex">
+    <div className="h-screen flex bg-gray-100 overflow-hidden">
       {/* Mobile Overlay */}
       {isSidebarOpen && (
         <div
-          className="fixed inset-0 z-40 bg-black/40 lg:hidden"
+          className="fixed inset-0 z-40  bg-black/40 lg:hidden"
           onClick={() => setIsSidebarOpen(false)}
         />
       )}
 
-
-
       {/* Sidebar */}
       <aside
-        className={`
-    fixed top-0 left-0 z-50 h-screen sm:w-[15%] bg-white shadow-lg
-    overflow-y-auto px-2 sm:px-4
+        className={`fixed top-0 w-[70%] sm:w-[15%] left-0 z-50 h-full  bg-white shadow-lg 
     transform transition-transform duration-300 ease-in-out
-    ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"}
+    ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"} 
     lg:translate-x-0 lg:static lg:z-auto
-    no-scrollbar
-  `}
+    overflow-y-auto no-scrollbar `}
       >
-        <div className="flex items-center justify-between px-5 py-4 ">
-
-          <div className="flex justify-center items-center">
-            <img className=" w-32" src={logo} alt="" />
-          </div>
-
+        <div className="flex items-center justify-between px-5 py-4">
+          <img className="w-28 sm:w-32" src={logo} alt="logo" />
           <button
             className="lg:hidden text-gray-600"
             onClick={() => setIsSidebarOpen(false)}
@@ -192,34 +148,22 @@ export default function MainLayout() {
           </button>
         </div>
 
-
-        <SideNavigation title="Overview" sideItemsArray={sidebarItems} setIsSidebarOpen={setIsSidebarOpen} ></SideNavigation>
-
-
-        <div className="mt-4 ">
-          <SideNavigation title="Management" sideItemsArray={manageMentItems} setIsSidebarOpen={setIsSidebarOpen} ></SideNavigation>
-
+        <div className="px-2 sm:px-4">
+          <SideNavigation title="Overview" sideItemsArray={sidebarItems} setIsSidebarOpen={setIsSidebarOpen} />
+          <div className="mt-4">
+            <SideNavigation title="Management" sideItemsArray={manageMentItems} setIsSidebarOpen={setIsSidebarOpen} />
+          </div>
+          <div className="mt-4">
+            <SideNavigation title="Operations" sideItemsArray={OperationsItems} setIsSidebarOpen={setIsSidebarOpen} />
+          </div>
+          <div className="mt-4">
+            <SideNavigation title="System" sideItemsArray={SystemItems} setIsSidebarOpen={setIsSidebarOpen} />
+          </div>
         </div>
-
-
-        <div className="mt-4 ">
-          <SideNavigation title="Operations" sideItemsArray={OperationsItems} setIsSidebarOpen={setIsSidebarOpen} ></SideNavigation>
-        </div>
-
-        <div className="mt-4 ">
-          <SideNavigation title="System" sideItemsArray={SystemItems} setIsSidebarOpen={setIsSidebarOpen} ></SideNavigation>
-        </div>
-
-
-
-
       </aside>
 
-
-
-
       {/* Main Section */}
-      <div className="flex-1 flex flex-col min-w-0">
+      <div className="flex-1 flex flex-col ">
         {/* Topbar */}
         <header className="sticky top-0 z-30 border-b border-b-gray-300 bg-white  px-4 py-4 flex items-center justify-between lg:px-6">
           <div className="flex items-center gap-3">
@@ -251,17 +195,11 @@ export default function MainLayout() {
           </div>
         </header>
 
-
-
-
-        {/* Dynamic Content */}
-        <main className="flex-1  md:p-0 overflow-x-hidden">
-          <div className=" bg-white p-4 md:p-6 shadow-sm min-h-[calc(100vh-75px)]">
-
+        {/* Scrollable Content */}
+        <main className="flex-1 overflow-y-auto ">
+          <div className="bg-white p-2 md:p-6 shadow-sm min-h-full">
             <Outlet />
-
           </div>
-
         </main>
       </div>
     </div>

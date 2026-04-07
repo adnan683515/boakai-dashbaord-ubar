@@ -1,6 +1,13 @@
+import DashboardHeading from "../../components/DashboardHeading"
+import { useDashboardTitle } from "../../Config/sendLocation"
 
 export default function Notifications() {
+
+  const { title, subtitle } = useDashboardTitle()
+
   return (
-    <div>Notifications</div>
+    <div>
+      <DashboardHeading title={title} subtitle={subtitle}></DashboardHeading>
+    </div>
   )
 }

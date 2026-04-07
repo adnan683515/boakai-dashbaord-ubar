@@ -1,6 +1,15 @@
+import DashboardHeading from "../../components/DashboardHeading"
+import { useDashboardTitle } from "../../Config/sendLocation"
 
 export default function Livemap() {
+
+  const { title, subtitle } = useDashboardTitle()
+
   return (
-    <div>Livemap</div>
+    <div>
+
+      <DashboardHeading title={title} subtitle={subtitle}></DashboardHeading>
+
+    </div>
   )
 }

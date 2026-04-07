@@ -1,6 +1,15 @@
+import DashboardHeading from "../../components/DashboardHeading"
+import { useDashboardTitle } from "../../Config/sendLocation"
 
 export default function SystemHealth() {
+
+  const {title , subtitle} = useDashboardTitle()
+
+
   return (
-    <div>SystemHealth</div>
+    <div>
+
+      <DashboardHeading title={title} subtitle={subtitle}></DashboardHeading>
+    </div>
   )
 }

@@ -1,6 +1,15 @@
+import DashboardHeading from "../../components/DashboardHeading";
+import { useDashboardTitle } from "../../Config/sendLocation";
 
 export default function Rider() {
+
+  const { title, subtitle } = useDashboardTitle();
+
+
+
   return (
-    <div>Rider</div>
+    <div>
+      <DashboardHeading title={title} subtitle={subtitle}></DashboardHeading>
+    </div>
   )
 }

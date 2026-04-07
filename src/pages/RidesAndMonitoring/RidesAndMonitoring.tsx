@@ -1,6 +1,16 @@
+import DashboardHeading from "../../components/DashboardHeading"
+import { useDashboardTitle } from "../../Config/sendLocation"
 
 export default function RidesAndMonitoring() {
+
+  const { title, subtitle } = useDashboardTitle()
+
+
+
   return (
-    <div>RidesAndMonitoring</div>
+    <div>
+
+      <DashboardHeading title={title} subtitle={subtitle}></DashboardHeading>
+    </div>
   )
 }
