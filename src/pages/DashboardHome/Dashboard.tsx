@@ -3,6 +3,8 @@ import DashboardHeading from "../../components/DashboardHeading";
 import { useDashboardTitle } from "../../Config/sendLocation";
 import RidesOverview from "./RidesOverview";
 import RidesByType from "./RidesByType";
+import RidesActivity from "./RidesActivity";
+import RevenueChart from "./RevenueChart";
 
 
 
@@ -116,15 +118,26 @@ export default function Dashboard() {
         ))}
       </div>
 
-      <div className="flex sm:flex-row flex-col sm:gap-4">
-        <div className="w-full sm:w-2/3 ">
+      <div className="flex flex-col lg:flex-row gap-4">
+        <div className="w-full lg:w-2/3">
           <RidesOverview />
         </div>
 
-        <div className="sm:w-1/3 ">
+        <div className="w-full lg:w-1/3">
           <RidesByType />
         </div>
       </div>
+
+      <div className=" my-2 sm:my-6">
+        <RidesActivity></RidesActivity>
+      </div>
+
+      <div>
+        <RevenueChart></RevenueChart>
+      </div>
+
+
+
     </div>
   )
 }

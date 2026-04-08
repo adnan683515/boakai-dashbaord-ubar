@@ -44,43 +44,42 @@ const RidesByType = () => {
     ];
 
     return (
-        <div className="bg-white rounded-2xl shadow-sm p-6 h-full w-full flex flex-col">
-            {/* Title */}
-            <h2 className="text-lg font-semibold text-gray-800 mb-4">
-                Rides by Type
-            </h2>
+       <div className="bg-white rounded-2xl shadow-sm p-4 sm:p-6 h-full flex flex-col">
+  
+  {/* Title */}
+  <h2 className="text-base sm:text-lg font-semibold text-gray-800 mb-4">
+    Rides by Type
+  </h2>
 
-            {/* Chart */}
-            <div className="flex justify-center mb-6">
-                <div className="w-60 h-60">
-                    <Doughnut data={data} options={options} />
-                </div>
-            </div>
+  {/* Chart */}
+  <div className="flex justify-center mb-6">
+    <div className="w-40 h-40 sm:w-52 sm:h-52 md:w-60 md:h-60">
+      <Doughnut data={data} options={options} />
+    </div>
+  </div>
 
-            {/* Legend */}
-            <div className="space-y-3 mt-auto">
-                {items.map((item, index) => (
-                    <div
-                        key={index}
-                        className="flex items-center justify-between text-sm"
-                    >
-                        {/* Left (Name) */}
-                        <div className="flex items-center gap-3">
-                            <span
-                                className="w-3 h-3 rounded-full"
-                                style={{ backgroundColor: item.color }}
-                            ></span>
-                            <span className="text-gray-600">{item.name}</span>
-                        </div>
-
-                        {/* Right (Value) */}
-                        <span className="text-gray-800 font-semibold">
-                            {item.value}
-                        </span>
-                    </div>
-                ))}
-            </div>
+  {/* Legend */}
+  <div className="space-y-3 mt-auto">
+    {items.map((item, index) => (
+      <div
+        key={index}
+        className="flex items-center justify-between text-xs sm:text-sm"
+      >
+        <div className="flex items-center gap-2 sm:gap-3">
+          <span
+            className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full"
+            style={{ backgroundColor: item.color }}
+          ></span>
+          <span className="text-gray-600">{item.name}</span>
         </div>
+
+        <span className="text-gray-800 font-semibold">
+          {item.value}
+        </span>
+      </div>
+    ))}
+  </div>
+</div>
     );
 };
 

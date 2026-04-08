@@ -87,23 +87,26 @@ const RidesOverview = () => {
   };
 
   return (
-    <div className="sm:p-6 bg-white rounded-2xl shadow-md">
-      {/* Filter */}
-      <div className="flex justify-end mb-4">
-        <select
-          value={year}
-          onChange={(e) => setYear(e.target.value)}
-          className="border px-3 py-1.5 rounded-md text-sm"
-        >
-          <option value="2023">2023</option>
-          <option value="2024">2024</option>
-          <option value="2025">2025</option>
-        </select>
-      </div>
+<div className="p-4 sm:p-6 bg-white rounded-2xl shadow-md h-full flex flex-col">
+  
+  {/* Filter */}
+  <div className="flex justify-end mb-4">
+    <select
+      value={year}
+      onChange={(e) => setYear(e.target.value)}
+      className="border px-3 py-1.5 rounded-md text-sm"
+    >
+      <option value="2023">2023</option>
+      <option value="2024">2024</option>
+      <option value="2025">2025</option>
+    </select>
+  </div>
 
-      {/* Chart */}
-      <Line data={data} options={options} />
-    </div>
+  {/* Chart */}
+  <div className="flex-1 sm:min-h-62.5 ">
+    <Line className="sm:w-full h-full" data={data} options={options} />
+  </div>
+</div>
   );
 };
 
